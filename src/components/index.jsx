@@ -79,7 +79,7 @@ class MaterialUiPhoneNumber extends React.Component {
       this.getOnlyCountries(props.onlyCountries, filteredCountries), props.excludeCountries,
     );
 
-    const preferredCountries = filter(filteredCountries, (country) => some(props.preferredCountries, (preferredCountry) => preferredCountry === country.iso2));
+    let preferredCountries = filter(filteredCountries, (country) => some(props.preferredCountries, (preferredCountry) => preferredCountry === country.iso2));
 
     const inputNumber = props.value || '';
 
@@ -589,6 +589,13 @@ class MaterialUiPhoneNumber extends React.Component {
       classes, dropdownClass, localization, disableDropdown, native,
     } = this.props;
     const inputFlagClasses = `flag ${selectedCountry.iso2}`;
+
+    preferredCountries.sort((a, b) => {
+      return (
+        (localization[a.name] > localization[b.name] && 1) ||
+        (localization[a.name] === localization[b.name] ? 0 : -1)
+      );
+    });
 
     const isSelected = (country) => Boolean(selectedCountry && selectedCountry.dialCode === country.dialCode);
 
