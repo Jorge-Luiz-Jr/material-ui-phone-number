@@ -1,8 +1,9 @@
 {
-  "name": "material-ui-phone-number",
-  "version": "2.2.6",
+  "name": "material-ui-phone-number-with-sort",
+  "version": "1.0.0",
   "description": "A material-ui react component to format phone numbers. Based on react-phone-input-2",
   "main": "dist/index.js",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --config webpack.config.dev.js --hot --progress --mode development",
